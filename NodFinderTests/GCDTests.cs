@@ -27,7 +27,7 @@ namespace NodFinder.Tests
         [DataRow(1,13,7)]
         public void Euclid_TwoNumbers_ReturnsGCD(int expectedGCD, int num1, int num2)
         {
-            int realGCD = GCD.Euclid(num1, num2);
+            int realGCD = GCD.Euclid(num1, num2, out _);
             Assert.AreEqual(realGCD, expectedGCD);
         }
 
@@ -65,6 +65,26 @@ namespace NodFinder.Tests
         public void Euclid_FiveNumbers_ReturnsGCD(int expectedGCD, int num1, int num2, int num3, int num4, int num5)
         {
             int realGCD = GCD.Euclid(num1, num2, num3, num4, num5);
+            Assert.AreEqual(realGCD, expectedGCD);
+        }
+
+        [DataTestMethod()]
+        [DataRow(21, 147, 105)]
+        [DataRow(21, 252, 105)]
+        [DataRow(21, 105, 252)]
+        [DataRow(21, 42, 105)]
+        [DataRow(21, 42, 63)]
+        [DataRow(21, 42, 21)]
+        [DataRow(21, 21, 21)]
+        [DataRow(21, 0, 21)]
+        [DataRow(21, 21, 0)]
+        [DataRow(21, -252, 105)]
+        [DataRow(21, -252, -105)]
+        [DataRow(1, 7, 13)]
+        [DataRow(1, 13, 7)]
+        public void Stein_TwoNumbers_ReturnsGCD(int expectedGCD, int num1, int num2)
+        {
+            int realGCD = GCD.Stein(num1, num2, out _);
             Assert.AreEqual(realGCD, expectedGCD);
         }
     }
