@@ -37,7 +37,7 @@ namespace NodFinder
             {
                 watch.Stop();
                 time = watch.ElapsedMilliseconds;
-                return num2;
+                return num1;
             }
         }
         public static int Euclid(int num1, int num2, int num3)
@@ -73,13 +73,13 @@ namespace NodFinder
             {
                 watch.Stop();
                 time = watch.ElapsedMilliseconds;
-                return num1;
+                return num2;
             }
-            if (num1 == 0)
+            if (num2 == 0)
             {
                 watch.Stop();
                 time = watch.ElapsedMilliseconds;
-                return num2;
+                return num1;
             }
             int k = 0;
             while (num1 % 2 == 0 && num2 % 2 == 0)
@@ -98,11 +98,16 @@ namespace NodFinder
                     num1 = (num1 - num2) >> 1;
                 else if (num2 > num1)
                     num2 = (num2 - num1) >> 1;
-
             }
             watch.Stop();
             time = watch.ElapsedMilliseconds;
             return num1*(int)Math.Pow(2,k);
+        }
+
+        public static void GetDataAboutTime(int num1, int num2, out long timeEuclid, out long timeStein)
+        {
+            _ = Euclid(num1,num2, out timeEuclid);
+            _ = Stein(num1, num2, out timeStein);
         }
     }
 }

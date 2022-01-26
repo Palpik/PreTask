@@ -28,7 +28,7 @@ namespace NodFinder.Tests
         public void Euclid_TwoNumbers_ReturnsGCD(int expectedGCD, int num1, int num2)
         {
             int realGCD = GCD.Euclid(num1, num2, out _);
-            Assert.AreEqual(realGCD, expectedGCD);
+            Assert.AreEqual(expectedGCD, realGCD);
         }
 
         [DataTestMethod()]
@@ -41,7 +41,7 @@ namespace NodFinder.Tests
         public void Euclid_ThreeNumbers_ReturnsGCD(int expectedGCD, int num1, int num2, int num3)
         {
             int realGCD = GCD.Euclid(num1, num2, num3);
-            Assert.AreEqual(realGCD, expectedGCD);
+            Assert.AreEqual(expectedGCD, realGCD);
         }
 
         [DataTestMethod()]
@@ -54,7 +54,7 @@ namespace NodFinder.Tests
         public void Euclid_FourNumbers_ReturnsGCD(int expectedGCD, int num1, int num2, int num3, int num4)
         {
             int realGCD = GCD.Euclid(num1, num2, num3,num4);
-            Assert.AreEqual(realGCD, expectedGCD);
+            Assert.AreEqual(expectedGCD, realGCD);
         }
 
         [DataTestMethod()]
@@ -65,7 +65,7 @@ namespace NodFinder.Tests
         public void Euclid_FiveNumbers_ReturnsGCD(int expectedGCD, int num1, int num2, int num3, int num4, int num5)
         {
             int realGCD = GCD.Euclid(num1, num2, num3, num4, num5);
-            Assert.AreEqual(realGCD, expectedGCD);
+            Assert.AreEqual(expectedGCD, realGCD);
         }
 
         [DataTestMethod()]
@@ -85,7 +85,35 @@ namespace NodFinder.Tests
         public void Stein_TwoNumbers_ReturnsGCD(int expectedGCD, int num1, int num2)
         {
             int realGCD = GCD.Stein(num1, num2, out _);
-            Assert.AreEqual(realGCD, expectedGCD);
+            Assert.AreEqual(expectedGCD, realGCD);
+        }
+
+        [TestMethod()]
+        public void Euclid_TwoNumbers_Exception()
+        {
+            try
+            {
+                GCD.Euclid(0, 0, out _);
+                Assert.Fail("Нет ошибки о нулях в НОД");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Все числа равны нулю", ex.Message,"Возникло непредвиденное исключение");
+            }
+        }
+
+        [TestMethod()]
+        public void Stein_TwoNumbers_Exception()
+        {
+            try
+            {
+                GCD.Stein(0, 0, out _);
+                Assert.Fail("Нет ошибки о нулях в НОД");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Все числа равны нулю", ex.Message, "Возникло непредвиденное исключение");
+            }
         }
     }
 }
