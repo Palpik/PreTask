@@ -11,6 +11,12 @@ namespace NodFinder.Tests
     [TestClass()]
     public class GCDTests
     {
+        /// <summary>
+        /// Тестирование правильности нахождения НОД двух чисел методом Euqlid
+        /// </summary>
+        /// <param name="expectedGCD">Ожидаемый НОД</param>
+        /// <param name="num1">данные</param>
+        /// <param name="num2">данные</param>
         [DataTestMethod()]
         [DataRow(21, 252, 105)]
         [DataRow(21, 105, 252)]
@@ -31,6 +37,13 @@ namespace NodFinder.Tests
             Assert.AreEqual(expectedGCD, realGCD);
         }
 
+        /// <summary>
+        /// Тестирование нахождения НОД трех чисел методом Euqlid
+        /// </summary>
+        /// <param name="expectedGCD">Ожидаемый НОД</param>
+        /// <param name="num1">данные</param>
+        /// <param name="num2">данные</param>
+        /// <param name="num3">данные</param>
         [DataTestMethod()]
         [DataRow(21, 252, 252, 105)]
         [DataRow(252, 252, 252, 252)]
@@ -44,6 +57,14 @@ namespace NodFinder.Tests
             Assert.AreEqual(expectedGCD, realGCD);
         }
 
+        /// <summary>
+        /// Тестирование нахождения НОД четырех чисел методом Euqlid
+        /// </summary>
+        /// <param name="expectedGCD">Ожидаемый НОД</param>
+        /// <param name="num1">данные</param>
+        /// <param name="num2">данные</param>
+        /// <param name="num3">данные</param>
+        /// <param name="num4">данные</param>
         [DataTestMethod()]
         [DataRow(21, 252, 147, 105, 63)]
         [DataRow(252, 252, 252, 252, 252)]
@@ -57,6 +78,15 @@ namespace NodFinder.Tests
             Assert.AreEqual(expectedGCD, realGCD);
         }
 
+        /// <summary>
+        /// Тестирование нахождения НОД пяти чисел методом Euqlid
+        /// </summary>
+        /// <param name="expectedGCD">Ожидаемый НОД</param>
+        /// <param name="num1">данные</param>
+        /// <param name="num2">данные</param>
+        /// <param name="num3">данные</param>
+        /// <param name="num4">данные</param>
+        /// <param name="num5">данные</param>
         [DataTestMethod()]
         [DataRow(21, 252, 147, 105, 63, 42)]
         [DataRow(252, 252, 252, 252, 252, 252)]
@@ -68,6 +98,12 @@ namespace NodFinder.Tests
             Assert.AreEqual(expectedGCD, realGCD);
         }
 
+        /// <summary>
+        /// Тестирование правильности нахождения НОД двух чисел методом Stein
+        /// </summary>
+        /// <param name="expectedGCD">Ожидаемый НОД</param>
+        /// <param name="num1">данные</param>
+        /// <param name="num2">данные</param>
         [DataTestMethod()]
         [DataRow(21, 147, 105)]
         [DataRow(21, 252, 105)]
@@ -88,6 +124,9 @@ namespace NodFinder.Tests
             Assert.AreEqual(expectedGCD, realGCD);
         }
 
+        /// <summary>
+        /// НОД не может быть вычичлен если все числа равны 0
+        /// </summary>
         [TestMethod()]
         public void Euclid_TwoNumbers_Exception()
         {
@@ -102,6 +141,9 @@ namespace NodFinder.Tests
             }
         }
 
+        /// <summary>
+        /// НОД не может быть вычичлен если все числа равны 0
+        /// </summary>
         [TestMethod()]
         public void Stein_TwoNumbers_Exception()
         {
